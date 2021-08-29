@@ -129,7 +129,7 @@ const CenterComponent = () => {
         {moment(Date().now).format("dddd")} {moment(Date().now).format("Do")}
       </h1>
       {/* Tect Field Ans Button*/}
-      <form className=" max-w-screen justify-between">
+      <form className="flex max-w-screen justify-between">
         {isEditing ? (
           <div className="flex flex-grow mr-22">
             <input
@@ -203,7 +203,10 @@ const CenterComponent = () => {
       {/* All Tasks Grid */}
       {/* show empty animation if filtered todos list is empty */}
       {filteredTodos.length === 0 ? (
-        <Lottie className="h-1/3 m-auto" animationData={empty} />
+        <div className="flex flex-col items-center justify-center m-auto">
+          <Lottie className="h-40" animationData={empty} />
+          <span className='font-bold text-gray-300'>No task found</span>
+        </div>
       ) : (
         <Accordion
           className="h-auto grid grid-cols-3 pt-6 pb-12 gap-6 items-start mt-6 "

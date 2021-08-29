@@ -24,31 +24,37 @@ const LeftComponent = () => {
       {/* Favourite List*/}
       <h1 className="text-lg font-bold text-gray-500 mt-12 mb-6">Favourites</h1>
       <div className=" scrollbar scrollbar-thin hover:scrollbar-thumb-amber-light scrollbar-thumb-gray-200 scrollbar-track-gray-100">
-        {favList.map((item) => (
-          <div
-            key={item.id}
-            className="flex items-center bg-white border-none p-5 mb-5 rounded-2xl shadow-sm justify-between "
-          >
-            <div className="flex items-center">
-              <span
-                className={
-                  item.isCompleted === true
-                    ? "line-through font-medium overflow-hidden truncate w-40"
-                    : "font-medium overflow-hidden truncate w-40"
-                }
-              >
-                {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
-              </span>
-            </div>
-            <span className="font-medium text-xs text-gray-400">
-              {moment(item.createdAt).format("hh:mm A")}
-            </span>
-            <TrashIcon
-              onClick={(e) => deleteTodo(e, item)}
-              className="h-4 w-4 relative text-red-400 cursor-pointer"
-            ></TrashIcon>
+        {favList.length === 0 ? (
+          <div className="flex items-center justify-center mt-72">
+            <span className="font-bold text-gray-300 ">No favourites yet</span>
           </div>
-        ))}
+        ) : (
+          favList.map((item) => (
+            <div
+              key={item.id}
+              className="flex items-center bg-white border-none p-5 mb-5 rounded-2xl shadow-sm justify-between "
+            >
+              <div className="flex items-center">
+                <span
+                  className={
+                    item.isCompleted === true
+                      ? "line-through font-medium overflow-hidden truncate w-40"
+                      : "font-medium overflow-hidden truncate w-40"
+                  }
+                >
+                  {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
+                </span>
+              </div>
+              <span className="font-medium text-xs text-gray-400">
+                {moment(item.createdAt).format("hh:mm A")}
+              </span>
+              <TrashIcon
+                onClick={(e) => deleteTodo(e, item)}
+                className="h-4 w-4 relative text-red-400 cursor-pointer"
+              ></TrashIcon>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

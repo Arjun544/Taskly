@@ -75,7 +75,7 @@ const SortDropDown = () => {
     <div
       ref={ref}
       onClick={toggleMenu}
-      className="flex relative h-12  bg-bgColor-light shadow-sm border-none px-4  w-1/5 rounded-xl hover:bg-gray-50 items-center justify-between cursor-pointer"
+      className="flex relative h-12  bg-bgColor-light shadow-sm border-none px-4 w-1/5 rounded-xl hover:bg-gray-50 items-center justify-between cursor-pointer"
     >
       <span className="font-semibold">{filterStatus}</span>
 
