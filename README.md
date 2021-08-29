@@ -19,3 +19,12 @@
 9. Add and updated user profile
 
 ## Images :
+[![Capture-1.png](https://i.postimg.cc/VvZbCcLY/Capture-1.png)](https://postimg.cc/XBFvRmCh)
+
+[![Capture-2.png](https://i.postimg.cc/bwxwXhcs/Capture-2.png)](https://postimg.cc/sM2rSb2r)
+
+[![Capture-3.png](https://i.postimg.cc/vBNQ789S/Capture-3.png)](https://postimg.cc/9Ry5ChLG)
+
+[![Capture-4.png](https://i.postimg.cc/7bvwcBK3/Capture-4.png)](https://postimg.cc/gLKCLKFj)
+
+[![Capture-5.png](https://i.postimg.cc/3N03tMFr/Capture-5.png)](https://postimg.cc/q60f75FW)
