@@ -167,8 +167,8 @@ const CenterComponent = () => {
           <div
             className={
               inputValue
-                ? "flex flex-grow h-15 mr-22"
-                : "flex flex-grow h-15 mr-44"
+                ? "flex flex-grow h-15 mr-22 w-full"
+                : "flex flex-grow h-15 mr-44 w-full"
             }
           >
             <input
@@ -176,7 +176,7 @@ const CenterComponent = () => {
               placeholder="Enter task"
               value={inputValue}
               onChange={handleSubmitInputChange}
-              className="px-3 py-4 placeholder-blueGray-300 shadow-sm font-semibold text-blueGray-600 bg-bgColor-light rounded-tl-2xl rounded-bl-2xl border-0 outline-none focus:outline-none focus:ring w-full"
+              className="px-3 py-4 placeholder-blueGray-300 shadow-sm font-semibold text-blueGray-600 bg-bgColor-light rounded-tl-2xl rounded-bl-2xl border-0 outline-none focus:outline-none focus:ring w-96"
             />
             <button
               onClick={handleSubmit}
