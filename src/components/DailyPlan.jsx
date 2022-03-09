@@ -21,7 +21,7 @@ const DailyPlan = ({ dailyTasks }) => {
     <div className="flex h-40 rounded-3xl bg-gray-700 mt-36 items-center justify-center shadow-lg hover:shadow-xl">
       <div className="flex flex-col">
         <span className="text-white font-semibold tracking-wider mr-4">
-          Your Daily Plan
+          Your Tasks Plan
         </span>
         <div>
           <span className="text-gray-400 font-semibold text-sm mr-2">
