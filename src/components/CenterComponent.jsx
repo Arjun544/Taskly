@@ -205,100 +205,103 @@ const CenterComponent = () => {
       {filteredTodos.length === 0 ? (
         <div className="flex flex-col items-center justify-center m-auto">
           <Lottie className="h-40" animationData={empty} />
-          <span className='font-bold text-gray-300'>No task found</span>
+          <span className="font-bold text-gray-300">No task found</span>
         </div>
       ) : (
         <Accordion
           className="h-auto grid grid-cols-3 pt-6 pb-12 gap-6 items-start mt-6 "
           isHovered={true}
         >
-          {filteredTodos.map((item) => {
-            return (
-              <AccordionItem
-                onExpand={() => setIsTileOpen(true)}
-                onClose={() => setIsTileOpen(false)}
-                title={
-                  <div
-                    key={item.id}
-                    className="flex flex-wrap h-16 items-center bg-bgColor-light border-none px-4 rounded-t-2xl shadow-sm justify-between justify-items-center cursor-pointer hover:shadow-md"
-                  >
-                    <div className="flex items-center justify-center">
-                      <div className="mr-3">
-                        <input
-                          type="checkbox"
-                          checked={item.isCompleted}
-                          onChange={(e) => handleCheckbox(e, item)}
-                          className="checkbox mt-1 hover:border-amber-light"
-                        ></input>
+          {filteredTodos
+            .slice()
+            .reverse()
+            .map((item) => {
+              return (
+                <AccordionItem
+                  onExpand={() => setIsTileOpen(true)}
+                  onClose={() => setIsTileOpen(false)}
+                  title={
+                    <div
+                      key={item.id}
+                      className="flex flex-wrap h-16 items-center bg-bgColor-light border-none px-4 rounded-t-2xl shadow-sm justify-between justify-items-center cursor-pointer hover:shadow-md"
+                    >
+                      <div className="flex items-center justify-center">
+                        <div className="mr-3">
+                          <input
+                            type="checkbox"
+                            checked={item.isCompleted}
+                            onChange={(e) => handleCheckbox(e, item)}
+                            className="checkbox mt-1 hover:border-amber-light"
+                          ></input>
+                        </div>
+                        <span
+                          className={
+                            item.isCompleted
+                              ? "line-through line font-medium overflow-hidden truncate w-28"
+                              : "font-medium overflow-hidden truncate w-28"
+                          }
+                        >
+                          {item.title.charAt(0).toUpperCase() +
+                            item.title.slice(1)}
+                        </span>
                       </div>
-                      <span
-                        className={
-                          item.isCompleted
-                            ? "line-through line font-medium overflow-hidden truncate w-28"
-                            : "font-medium overflow-hidden truncate w-28"
-                        }
-                      >
-                        {item.title.charAt(0).toUpperCase() +
-                          item.title.slice(1)}
+                      <div className="flex items-center">
+                        <span className="font-medium text-xs text-gray-400 mr-1">
+                          {moment(item.createdAt).format("lll")}
+                        </span>
+                        {isTileOpen ? (
+                          <ChevronUpIcon className="h-6 w-6 relative text-gray-300 cursor-pointer"></ChevronUpIcon>
+                        ) : (
+                          <ChevronDownIcon className="h-6 w-6 relative text-gray-300 cursor-pointer"></ChevronDownIcon>
+                        )}
+                      </div>
+                    </div>
+                  }
+                  expanded={item === 1}
+                >
+                  <div className="flex flex-col h-32 items-start bg-bgColor-light border-none px-4 rounded-b-2xl shadow-sm">
+                    <div className="flex">
+                      <span className=" pr-20 pb-2 text-sm font-semibold">
+                        Category
+                      </span>
+                      <span className="text-black pl-4 text-sm font-semibold">
+                        {item.category}
                       </span>
                     </div>
-                    <div className="flex items-center">
-                      <span className="font-medium text-xs text-gray-400 mr-1">
-                        {moment(item.createdAt).format("lll")}
+                    <div className="flex">
+                      <span className=" pr-9 pb-2 text-sm font-semibold">
+                        Scheduled Date
                       </span>
-                      {isTileOpen ? (
-                        <ChevronUpIcon className="h-6 w-6 relative text-gray-300 cursor-pointer"></ChevronUpIcon>
+                      <span className="text-black pl-4 text-sm font-semibold">
+                        {moment(item.scheduledDate).format("lll")}
+                      </span>
+                    </div>
+                    <div className="flex mb-4">
+                      <span className=" pr-24 text-sm font-semibold">
+                        Time left
+                      </span>
+                      {new Date(item.scheduledDate).getTime() <
+                      new Date().getTime() ? (
+                        <span className="text-red-500 text-sm font-semibold">
+                          Expired
+                        </span>
                       ) : (
-                        <ChevronDownIcon className="h-6 w-6 relative text-gray-300 cursor-pointer"></ChevronDownIcon>
+                        <TodoTimer todoTime={item.scheduledDate} />
                       )}
                     </div>
+                    <TodoOptions
+                      todo={item}
+                      setTodoList={setTodoList}
+                      setIsEditing={setIsEditing}
+                      setCurrentTodo={setCurrentTodo}
+                      setFavList={setFavList}
+                      todoList={todoList}
+                      favList={favList}
+                    />
                   </div>
-                }
-                expanded={item === 1}
-              >
-                <div className="flex flex-col h-32 items-start bg-bgColor-light border-none px-4 rounded-b-2xl shadow-sm">
-                  <div className="flex">
-                    <span className=" pr-20 pb-2 text-sm font-semibold">
-                      Category
-                    </span>
-                    <span className="text-black pl-4 text-sm font-semibold">
-                      {item.category}
-                    </span>
-                  </div>
-                  <div className="flex">
-                    <span className=" pr-9 pb-2 text-sm font-semibold">
-                      Scheduled Date
-                    </span>
-                    <span className="text-black pl-4 text-sm font-semibold">
-                      {moment(item.scheduledDate).format("lll")}
-                    </span>
-                  </div>
-                  <div className="flex mb-4">
-                    <span className=" pr-24 text-sm font-semibold">
-                      Time left
-                    </span>
-                    {new Date(item.scheduledDate).getTime() <
-                    new Date().getTime() ? (
-                      <span className="text-red-500 text-sm font-semibold">
-                        Expired
-                      </span>
-                    ) : (
-                      <TodoTimer todoTime={item.scheduledDate} />
-                    )}
-                  </div>
-                  <TodoOptions
-                    todo={item}
-                    setTodoList={setTodoList}
-                    setIsEditing={setIsEditing}
-                    setCurrentTodo={setCurrentTodo}
-                    setFavList={setFavList}
-                    todoList={todoList}
-                    favList={favList}
-                  />
-                </div>
-              </AccordionItem>
-            );
-          })}
+                </AccordionItem>
+              );
+            })}
         </Accordion>
       )}
     </div>

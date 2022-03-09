@@ -1,5 +1,5 @@
-import React, { forwardRef } from "react";
-
+import React, { forwardRef, useEffect } from "react";
+import moment from "moment";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -22,6 +22,10 @@ const TodoSchedular = ({
       {value}
     </button>
   ));
+
+  useEffect(() => {
+    setDate(new moment(Date.now()).add(1, "h").toDate());
+  }, []);
 
   return (
     <div className=" flex justify-center items-center w-56 h-12 rounded-xl shadow-sm font-semibold bg-bgColor-light">
