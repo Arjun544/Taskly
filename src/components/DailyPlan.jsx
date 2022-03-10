@@ -18,7 +18,7 @@ const DailyPlan = ({ dailyTasks }) => {
   }, [percentage]);
 
   return (
-    <div className="flex h-40 rounded-3xl bg-gray-700 mt-36 items-center justify-center shadow-lg hover:shadow-xl">
+    <div className="flex h-40 rounded-3xl bg-gradient-to-tl from-gray-400 to-black mt-12 items-center justify-center shadow-lg hover:shadow-xl">
       <div className="flex flex-col">
         <span className="text-white font-semibold tracking-wider mr-4">
           Your Tasks Plan

@@ -17,6 +17,7 @@ import CategoryDropDown from "./CategoryDropDown";
 
 const CenterComponent = () => {
   const {
+    userName,
     todoList,
     filteredTodos,
     setTodoList,
@@ -124,7 +125,9 @@ const CenterComponent = () => {
   return (
     <div className="flex flex-col bg-white py-10 pr-16 pl-12 relative -right-96 overflow-x-hidden scrollbar scrollbar-thin hover:scrollbar-thumb-amber-light scrollbar-thumb-gray-200 scrollbar-track-gray-100">
       {/* Current Day and Date*/}
-      <h1 className="text-lg font-bold text-black mt-2">Today's Schedule</h1>
+      <h1 className="text-lg font-bold text-black mt-2">
+        {userName !== 'Unknown' ? userName+',' : ""} We're wishing you a great day
+      </h1>
       <h1 className="text-lg font-bold text-amber-light mt-2 mb-6">
         {moment(Date().now).format("dddd")} {moment(Date().now).format("Do")}
       </h1>

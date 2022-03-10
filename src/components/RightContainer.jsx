@@ -1,6 +1,7 @@
 import { React, useEffect, useContext } from "react";
 import { AppContext } from "../App";
 import DailyPlan from "./DailyPlan";
+import RandomQuote from "./RandomQuote";
 import StatsTile from "./StatsTile";
 
 const RightContainer = () => {
@@ -64,6 +65,8 @@ const RightContainer = () => {
           isEven={true}
         />
       </div>
+
+      <RandomQuote/>
 
       <DailyPlan
         dailyTasks={filteredTodos.filter(
