@@ -2,6 +2,9 @@
 
 ### Taskly is a note taking web based app, helps you to take notes for you and manage your life.
 
+## Live:
+Url : https://taskly-todo.herokuapp.com
+
 ## Stack:
 1. React
 2. Tailwind Css
