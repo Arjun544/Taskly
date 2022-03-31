@@ -77,7 +77,7 @@ const SortDropDown = () => {
       onClick={toggleMenu}
       className="flex relative h-12  bg-bgColor-light shadow-sm border-none px-4 w-96 rounded-xl hover:bg-gray-50 items-center justify-between cursor-pointer"
     >
-      <span className="font-semibold">{filterStatus}</span>
+      <span className="font-semibold text-black tracking-wider text-sm">{filterStatus}</span>
 
       <ChevronDownIcon className="h-4 w-4 relative text-gray cursor-pointer"></ChevronDownIcon>
 

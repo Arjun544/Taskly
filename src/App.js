@@ -147,7 +147,7 @@ function App() {
           </div>
         )}
         {changeProfileDialogue && (
-          <div className=" flex absolute z-50 w-screen h-screen bg-gray-50 bg-opacity-0 backdrop-filter backdrop-blur-sm justify-center items-center">
+          <div className="flex absolute z-50 w-screen h-screen bg-gray-50 bg-opacity-0 backdrop-filter backdrop-blur-sm justify-center items-center">
             <ChangeProfileDialogue
               setstartUpDialogue={setChangeProfileUpDialogue}
               setUserName={setUserName}
@@ -161,8 +161,7 @@ function App() {
         <LeftComponent />
         {/* center Container*/}
         <CenterComponent />
-          <RightContainer />
-        
+        <RightContainer />
         <ToastContainer newestOnTop={true} draggable={false} />;
       </div>
     </AppContext.Provider>

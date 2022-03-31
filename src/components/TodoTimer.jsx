@@ -33,21 +33,21 @@ const TodoTimer = ({ todoTime }) => {
   }, []);
   return (
     <div className="flex">
-      <div className="mr-2">
-        <span className="font-bold">{days}</span>
+      <div className="mr-2 flex items-center gap-1">
+        <span className="font-semibold text-black">{days}</span>
         <span className="text-sm font-bold text-gray-400">d</span>
       </div>
 
-      <div className="mr-2">
-        <span className="font-bold">{hours}</span>
+      <div className="mr-2 flex items-center gap-1">
+        <span className="font-semibold text-black">{hours}</span>
         <span className="text-sm font-bold text-gray-400">h</span>
       </div>
-      <div className="mr-2">
-        <span className="font-bold">{minutes}</span>
+      <div className="mr-2 flex items-center gap-1">
+        <span className="font-semibold text-black">{minutes}</span>
         <span className="text-sm font-bold text-gray-400">m</span>
       </div>
-      <div className="mr-2">
-        <span className="font-bold">{seconds}</span>
+      <div className="mr-2 flex items-center gap-1">
+        <span className="font-semibold text-black">{seconds}</span>
         <span className="text-sm font-bold text-gray-400">s</span>
       </div>
     </div>

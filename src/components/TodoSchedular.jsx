@@ -28,7 +28,7 @@ const TodoSchedular = ({
   }, []);
 
   return (
-    <div className=" flex justify-center items-center w-56 h-12 rounded-xl shadow-sm font-semibold bg-bgColor-light">
+    <div className="flex justify-center items-center w-56 h-12 text-black rounded-xl shadow-sm font-semibold bg-bgColor-light">
       <DatePicker
         selected={isEditing ? currentTodo.scheduledDate : date}
         onChange={

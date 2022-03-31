@@ -123,12 +123,13 @@ const CenterComponent = () => {
   useEffect(() => {}, [currentTodo]);
 
   return (
-    <div className="flex flex-col bg-white py-10 pr-16 pl-12 relative -right-96 overflow-x-hidden scrollbar scrollbar-thin hover:scrollbar-thumb-amber-light scrollbar-thumb-gray-200 scrollbar-track-gray-100">
+    <div className="flex flex-col bg-white py-10 pr-16 w-full pl-12 relative m-auto h-full overflow-x-hidden scrollbar scrollbar-thin hover:scrollbar-thumb-amber-light scrollbar-thumb-gray-200 scrollbar-track-gray-100">
       {/* Current Day and Date*/}
-      <h1 className="text-lg font-bold text-black mt-2">
-        {userName !== 'Unknown' ? userName+',' : ""} We're wishing you a great day
+      <h1 className="text-lg font-semibold text-black mt-2 capitalize">
+        {userName !== "Unknown" ? userName + "," : ""} We're wishing you a great
+        day
       </h1>
-      <h1 className="text-lg font-bold text-amber-light mt-2 mb-6">
+      <h1 className="text-lg font-semibold text-amber-light mt-2 mb-6 tracking-wider">
         {moment(Date().now).format("dddd")} {moment(Date().now).format("Do")}
       </h1>
       {/* Tect Field Ans Button*/}
@@ -179,17 +180,17 @@ const CenterComponent = () => {
               placeholder="Enter task"
               value={inputValue}
               onChange={handleSubmitInputChange}
-              className="px-3 py-4 placeholder-blueGray-300 shadow-sm font-semibold text-blueGray-600 bg-bgColor-light rounded-tl-2xl rounded-bl-2xl border-0 outline-none focus:outline-none focus:ring w-96"
+              className="px-3 py-4 placeholder-blueGray-300 text-black tracking-wider shadow-sm font-semibold text-blueGray-600 bg-bgColor-light rounded-tl-2xl rounded-bl-2xl border-0 outline-none focus:outline-none focus:ring w-96"
             />
             <button
               onClick={handleSubmit}
-              className="flex-none px-4 py-3 mr-30 text-sm  rounded-tr-2xl rounded-br-2xl font-medium tracking-wider text-white transition-colors duration-200 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
+              className="flex-none px-4 py-3 mr-30 text-sm rounded-tr-2xl rounded-br-2xl font-medium tracking-wider text-white transition-colors duration-200 transform bg-gray-700 hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
             >
               Add New
             </button>
             {/*  Date Time pciker */}
             {inputValue && (
-              <div className=" w-1/2 h-12 mx-20 rounded-xl">
+              <div className="w-1/2 h-12 mx-20 rounded-xl">
                 <TodoSchedular
                   date={date}
                   setDate={setDate}
@@ -228,20 +229,20 @@ const CenterComponent = () => {
                       key={item.id}
                       className="flex flex-wrap h-16 items-center bg-bgColor-light border-none px-4 rounded-t-2xl shadow-sm justify-between justify-items-center cursor-pointer hover:shadow-md"
                     >
-                      <div className="flex items-center justify-center">
+                      <div className="flex items-center justify-center overflow-hidden">
                         <div className="mr-3">
                           <input
                             type="checkbox"
                             checked={item.isCompleted}
                             onChange={(e) => handleCheckbox(e, item)}
-                            className="checkbox mt-1 hover:border-amber-light"
+                            className="checkbox mt-1 border-gray-300 border-2 hover:border-amber-light"
                           ></input>
                         </div>
                         <span
                           className={
                             item.isCompleted
-                              ? "line-through line font-medium overflow-hidden truncate w-28"
-                              : "font-medium overflow-hidden truncate w-28"
+                              ? "line-through line font-medium overflow-hidden text-black tracking-wider truncate"
+                              : "font-medium overflow-hidden text-black text-sm truncate w-full tracking-wider"
                           }
                         >
                           {item.title.charAt(0).toUpperCase() +
@@ -264,28 +265,28 @@ const CenterComponent = () => {
                 >
                   <div className="flex flex-col h-32 items-start bg-bgColor-light border-none px-4 rounded-b-2xl shadow-sm">
                     <div className="flex">
-                      <span className=" pr-20 pb-2 text-sm font-semibold">
+                      <span className=" pr-20 pb-2 text-gray-400 tracking-wider text-xs font-medium">
                         Category
                       </span>
-                      <span className="text-black pl-4 text-sm font-semibold">
+                      <span className="text-black pl-4 tracking-wider text-xs font-medium">
                         {item.category}
                       </span>
                     </div>
                     <div className="flex">
-                      <span className=" pr-9 pb-2 text-sm font-semibold">
+                      <span className=" pr-9 pb-2 text-gray-400 tracking-wider text-xs font-medium">
                         Scheduled Date
                       </span>
-                      <span className="text-black pl-4 text-sm font-semibold">
+                      <span className="text-black pl-4 tracking-wider text-xs font-medium">
                         {moment(item.scheduledDate).format("lll")}
                       </span>
                     </div>
                     <div className="flex mb-4">
-                      <span className=" pr-24 text-sm font-semibold">
+                      <span className=" pr-24 text-gray-400 tracking-wider text-xs font-medium">
                         Time left
                       </span>
                       {new Date(item.scheduledDate).getTime() <
                       new Date().getTime() ? (
-                        <span className="text-red-500 text-sm font-semibold">
+                        <span className="text-red-500 tracking-wider text-xs font-medium">
                           Expired
                         </span>
                       ) : (

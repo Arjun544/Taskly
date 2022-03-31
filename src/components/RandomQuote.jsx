@@ -45,7 +45,7 @@ const RandomQuote = () => {
             </span>
             <RefreshIcon
               onClick={(e) => handleRefresh(e)}
-              className="h-5 w-5 cursor-pointer hover:text-green-600"
+              className="h-5 w-5 cursor-pointer text-black hover:text-green-600"
             />
           </div>
         </div>

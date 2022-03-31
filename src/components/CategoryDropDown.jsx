@@ -3,7 +3,7 @@ import useOutsideClick from "../useOutsideClick";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { AppContext } from "../App";
 
-const CategoryDropDown = ({ currentTodo, isEditing}) => {
+const CategoryDropDown = ({ currentTodo, isEditing }) => {
   const { selectedCategory, setSelectedCategory } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -61,10 +61,10 @@ const CategoryDropDown = ({ currentTodo, isEditing}) => {
       ref={ref}
       onClick={toggleMenu}
       className={
-         "flex relative h-12 z-50 bg-bgColor-light shadow-sm border-none px-4  w-1/3 rounded-xl hover:bg-gray-50 items-center justify-between cursor-pointer"
+        "flex relative h-12 z-50 bg-bgColor-light shadow-sm text-black border-none px-4  w-1/3 rounded-xl hover:bg-gray-50 items-center justify-between cursor-pointer"
       }
     >
-      <span className="font-semibold text-sm">
+      <span className="font-semibold text-black tracking-wider text-sm">
         {isEditing ? currentTodo.category : selectedCategory}
       </span>
 

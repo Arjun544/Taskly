@@ -25,7 +25,7 @@ const RightContainer = () => {
   };
 
   return (
-    <div className="bg-white h-screen px-10 pt-12 w-96 fixed right-0">
+    <div className="bg-white h-screen px-10 pt-12 w-96 right-0">
       <div className=" flex justify-end items-center mb-9 ">
         <div className="flex flex-col mr-10">
           <span className="text-gray-400 font-semibold">
